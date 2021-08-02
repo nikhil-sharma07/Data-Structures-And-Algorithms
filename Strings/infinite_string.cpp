@@ -26,36 +26,45 @@ int func(string str, int n, int s, int e, char ch)
     int x = (e + 1) / n;
     int y = (s + 1) / n;
 
-    res = x * cnt;
-    res = res - y * cnt;
-    x = (e + 1) - n * x;
+    int ne = 0; //number of occurrences of the character till ending index
+    int ns = 0; //number of occurrences of the character till starting index
 
-    cnt = 0;
-    for (int i = 0; i <= x; i++)
+    ne = x * cnt;
+    int n_left_ending; //number of characters left till ending index
+    n_left_ending = e + 1 - ne;
+    if (n_left_ending)
     {
-        if (str[i] == ch)
+        cnt = 0;
+        for (int i = 0; i <= n_left_ending; i++)
         {
-            cnt++;
+            if (str[i] == ch)
+            {
+                cnt++;
+            }
         }
+        ne += cnt;
     }
 
-    res += cnt;
-    y = (s + 1) - y * n;
-    if (y == 0)
+    ns = y * cnt;
+    int n_left_starting = s + 1 - ns;
+    if (n_left_ending)
+    {
+        cnt = 0;
+        for (int i = 0; i <= n_left_starting; i++)
+        {
+            if (str[i] == ch)
+            {
+                cnt++;
+            }
+        }
+        ns += cnt;
+    }
+
+    res = ne - ns;
+    if (str[n - 1] == ch)
     {
         res++;
     }
-
-    cnt = 0;
-    for (int i = 0; i < y - 1; i++)
-    {
-        if (str[i] == ch)
-        {
-            cnt++;
-        }
-    }
-
-    res = res - cnt;
     return res;
 }
 
