@@ -29,18 +29,9 @@ int func(string str, int n, int s, int e, char ch)
     res = x * cnt;
     res = res - y * cnt;
     x = (e + 1) - n * x;
-    int idx = -1;
-    if (x == 0)
-    {
-        idx = -1;
-    }
-    else
-    {
-        idx = (x - 1) % n;
-    }
 
     cnt = 0;
-    for (int i = 0; i <= idx; i++)
+    for (int i = 0; i <= x; i++)
     {
         if (str[i] == ch)
         {
@@ -52,14 +43,11 @@ int func(string str, int n, int s, int e, char ch)
     y = (s + 1) - y * n;
     if (y == 0)
     {
-        idx = -1;
+        res++;
     }
-    else
-    {
-        idx = (y - 1) % n;
-    }
+
     cnt = 0;
-    for (int i = 0; i < idx; i++)
+    for (int i = 0; i < y - 1; i++)
     {
         if (str[i] == ch)
         {
@@ -75,9 +63,9 @@ int main()
 {
     string str = "aab";
     int n = str.length();
-    int s = 2;
-    int e = 8;
-    char ch = 'a';
+    int s = 5;
+    int e = 15;
+    char ch = 'b';
     cout << func(str, n, s, e, ch);
     return 0;
 }
