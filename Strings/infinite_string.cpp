@@ -10,6 +10,7 @@ int func(string str, int n, int s, int e, char ch)
 {
     int res = 0; //will store the final answer
     int cnt = 0; //count number of occurrences of the character in the given string
+    int idx = n - 1;
     for (int i = 0; i < n; i++)
     {
         if (str[i] == ch)
@@ -31,11 +32,13 @@ int func(string str, int n, int s, int e, char ch)
 
     ne = x * cnt;
     int n_left_ending; //number of characters left till ending index
-    n_left_ending = e + 1 - ne;
+    n_left_ending = e + 1 - n * x;
+    ns = y * cnt;
+    int n_left_starting = s + 1 - n * y;
     if (n_left_ending)
     {
         cnt = 0;
-        for (int i = 0; i <= n_left_ending; i++)
+        for (int i = 0; i < n_left_ending; i++)
         {
             if (str[i] == ch)
             {
@@ -45,12 +48,10 @@ int func(string str, int n, int s, int e, char ch)
         ne += cnt;
     }
 
-    ns = y * cnt;
-    int n_left_starting = s + 1 - ns;
-    if (n_left_ending)
+    if (n_left_starting)
     {
         cnt = 0;
-        for (int i = 0; i <= n_left_starting; i++)
+        for (int i = 0; i < n_left_starting; i++)
         {
             if (str[i] == ch)
             {
@@ -58,10 +59,11 @@ int func(string str, int n, int s, int e, char ch)
             }
         }
         ns += cnt;
+        idx = n_left_starting - 1;
     }
 
     res = ne - ns;
-    if (str[n - 1] == ch)
+    if (str[idx] == ch)
     {
         res++;
     }
@@ -72,8 +74,8 @@ int main()
 {
     string str = "aab";
     int n = str.length();
-    int s = 5;
-    int e = 15;
+    int s = 7;
+    int e = 8;
     char ch = 'b';
     cout << func(str, n, s, e, ch);
     return 0;
