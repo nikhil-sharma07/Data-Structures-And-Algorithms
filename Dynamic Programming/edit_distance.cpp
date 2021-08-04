@@ -16,39 +16,74 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int dp[501][501];
+//Top Down (Recursion + Memoization)
+// int dp[501][501];
+// int minDist(string word1, string word2, int m, int n)
+// {
+//     if (m == 0)
+//     {
+//         return n;
+//     }
+
+//     if (n == 0)
+//     {
+//         return m;
+//     }
+
+//     if (dp[m][n] != -1)
+//     {
+//         return dp[m][n];
+//     }
+
+//     if (word1[m - 1] == word2[n - 1])
+//     {
+//         return dp[m][n] = minDist(word1, word2, m - 1, n - 1);
+//     }
+//     else
+//     {
+//         return dp[m][n] = 1 + min(minDist(word1, word2, m, n - 1), min(minDist(word1, word2, m - 1, n), minDist(word1, word2, m - 1, n - 1)));
+//     }
+// }
+
+//Bottom Up (Tabulation)
 int minDist(string word1, string word2, int m, int n)
 {
-    if (m == 0)
+    int dp[n + 1][m + 1];
+    for (int i = 0; i < m + 1; i++)
     {
-        return n;
+        dp[0][i] = i;
     }
 
-    if (n == 0)
+    for (int i = 0; i < n + 1; i++)
     {
-        return m;
+        dp[i][0] = i;
     }
 
-    if (dp[m][n] != -1)
+    dp[0][0] = 0;
+
+    for (int i = 1; i < n + 1; i++)
     {
-        return dp[m][n];
+        for (int j = 1; j < m + 1; j++)
+        {
+            if (word1[j - 1] == word2[i - 1])
+            {
+                dp[i][j] = dp[i - 1][j - 1];
+            }
+            else
+            {
+                dp[i][j] = 1 + min(dp[i][j - 1], min(dp[i - 1][j], dp[i - 1][j - 1]));
+            }
+        }
     }
 
-    if (word1[m - 1] == word2[n - 1])
-    {
-        return dp[m][n] = minDist(word1, word2, m - 1, n - 1);
-    }
-    else
-    {
-        return dp[m][n] = 1 + min(minDist(word1, word2, m, n - 1), min(minDist(word1, word2, m - 1, n), minDist(word1, word2, m - 1, n - 1)));
-    }
+    return dp[n][m];
 }
 
 int minDistance(string word1, string word2)
 {
     int m = word1.length();
     int n = word2.length();
-    memset(dp, -1, sizeof(dp));
+    // memset(dp, -1, sizeof(dp));
     return minDist(word1, word2, m, n);
 }
 
