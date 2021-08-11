@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//TIME COMPLEXITY - O(N^3)
+//SPACE COMPLEXITY - O(N^2)
 int dp[1001][1001];
 int func(int a[], int s, int e)
 {
@@ -34,7 +36,7 @@ int mcm(int a[], int n)
 
 int main()
 {
-    int a[5] = {10, 20, 30};
-    cout << mcm(a, 3);
+    int a[5] = {40, 20, 30, 10, 30};
+    cout << mcm(a, 5);
     return 0;
 }
