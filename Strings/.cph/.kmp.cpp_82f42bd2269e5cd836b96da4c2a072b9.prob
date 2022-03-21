@@ -1,0 +1,1 @@
+{"name":"Local: kmp","url":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Strings\\kmp.cpp","tests":[{"id":1644128950049,"input":"AABAACAADAABAABA\nAABA","output":"0\n9\n12"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Strings\\kmp.cpp","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: prefix_zeroes","url":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Binary Search\\prefix_zeroes.cpp","tests":[{"id":1643538176626,"input":"1\n3 5\n380","output":"0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Binary Search\\prefix_zeroes.cpp","group":"local","local":true}

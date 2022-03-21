@@ -1,0 +1,1 @@
+{"name":"Local: string_matching_cnt","url":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Strings\\string_matching_cnt.cpp","tests":[{"id":1644602210007,"input":"saippuakauppias\npp","output":"2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\asus\\OneDrive\\Desktop\\DS-ALGO\\Strings\\string_matching_cnt.cpp","group":"local","local":true}
